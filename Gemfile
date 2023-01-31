@@ -40,6 +40,8 @@ group :development, :test do
   gem 'pry'
   gem 'simplecov'
   gem 'rspec-rails'
+  gem 'capybara' # allows us to interacte like a user with our website
+  gem 'launchy' #save_and_open_page
 end
 
 group :development do

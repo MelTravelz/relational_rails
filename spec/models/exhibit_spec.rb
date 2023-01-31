@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Exhibit, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'instance methods' do
+    describe "#method_name" do
+      it "describe what it does" do
+      end
+    end
+  end
 end
