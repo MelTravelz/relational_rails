@@ -4,4 +4,8 @@ class ExhibitsController < ApplicationController
     @exhibits = Exhibit.all
   end
 
+  def show
+    @exhibit = Exhibit.find(params[:id])
+  end
+
 end
