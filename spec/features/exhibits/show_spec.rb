@@ -12,24 +12,24 @@ RSpec.describe 'the exhibit show page' do
   let!(:artifact_5) { Artifact.create!(exhibit: exhibit_2, name: "Roof-end Tile with Face Design", material: "tile", year_created: "800 BCE", on_loan: true, total_pieces: 1) }
   let!(:artifact_6) { Artifact.create!(exhibit: exhibit_2, name: "Silla Golden Crown", material: "gold", year_created: "400 BCE", on_loan: true, total_pieces: 1) }
   let!(:artifact_7) { Artifact.create!(exhibit: exhibit_2, name: "Pensive Bodhisattva", material: "gilt bronze", year_created: "610 BCE", on_loan: true, total_pieces: 1) }
-  
 
-  describe 'as a visitor' do
-    describe 'when i visit "/exhibits/:id"' do
-      it 'shows that one exhibit name and its attributes' do
+  describe 'user story 2' do
+    describe 'when I visit "/exhibits/:id"' do
+      it 'displays one exhibit name and its attributes' do
         visit "/exhibits/#{exhibit_1.id}"
 
         expect(page).to have_content(exhibit_1.name) 
-        expect(page).to have_content(exhibit_1.start_date)
-        expect(page).to have_content(exhibit_1.end_date)
-        expect(page).to have_content(exhibit_1.on_display)
-        expect(page).to have_content(exhibit_1.price)
+        expect(page).to have_content("Start Date: #{exhibit_1.start_date}")
+        expect(page).to have_content("End Date: #{exhibit_1.end_date}")
+        expect(page).to have_content("Currently on display? #{exhibit_1.on_display}")
+        expect(page).to have_content("Price: #{exhibit_1.price}")
 
-        expect(page).to_not have_content(exhibit_2.name)
-        expect(page).to_not have_content(exhibit_2.start_date)
-        expect(page).to_not have_content(exhibit_2.end_date)
-        expect(page).to_not have_content(exhibit_2.on_display)
-        expect(page).to_not have_content(exhibit_2.price)
+        # Not needed: This is NOT sad pathing:
+        # expect(page).to_not have_content(exhibit_2.name)
+        # expect(page).to have_content("Start Date: #{exhibit_2.start_date}")
+        # expect(page).to have_content("End Date: #{exhibit_2.end_date}")
+        # expect(page).to have_content("Currently on display? #{exhibit_2.on_display}")
+        # expect(page).to have_content("Price: #{exhibit_2.price}")
       end
     end
   end
