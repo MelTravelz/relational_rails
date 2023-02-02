@@ -38,4 +38,22 @@ RSpec.describe 'the exhibit index page' do
     end
   end
 
+  describe 'user story 8' do
+    describe 'when I visit "/exhibits"'do 
+      it 'I see a link at the top of the page that takes me to the Artifacts Index page' do
+        visit "/exhibits"
+        expect(page).to have_link("All Artifacts", href: "http://localhost:3000/artifacts")
+      end
+    end
+  end
+
+  describe 'user story 9' do
+    describe 'when I visit "/exhibits"'do 
+      it 'I see a link at the top of the page that takes me to the Exhibits Index page' do
+        visit "/exhibits"
+        expect(page).to have_link("All Exhibits", href: "http://localhost:3000/exhibits")
+      end
+    end
+  end
+
 end
