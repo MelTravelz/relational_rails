@@ -5,8 +5,8 @@ class Artifact < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :material
       t.string :year_created
-      t.boolean :on_loan
       t.integer :total_pieces
+      t.boolean :on_loan
       
       t.timestamps 
     end

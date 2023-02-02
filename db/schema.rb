@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2023_01_30_224430) do
     t.string "name"
     t.string "material"
     t.string "year_created"
-    t.boolean "on_loan"
     t.integer "total_pieces"
+    t.boolean "on_loan"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exhibit_id"], name: "index_artifacts_on_exhibit_id"
