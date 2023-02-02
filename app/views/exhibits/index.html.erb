@@ -1,7 +1,8 @@
 <h1>All Exhibits</h1>
 
 <% @exhibits.each do |exhibit| %>
-  <h3><%= exhibit.name %></h3> 
-  <p>Created at: <%=exhibit_2.created_at%></p>
+    <h3><%= exhibit.name %></h3> 
+    <p>Created at: <%= exhibit.created_at %></p>
+  <br>
 <% end %>
 

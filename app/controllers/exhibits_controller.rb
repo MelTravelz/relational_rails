@@ -1,7 +1,7 @@
 class ExhibitsController < ApplicationController
 
   def index
-    @exhibits = Exhibit.all
+    @exhibits = Exhibit.order(created_at: :desc)
   end
 
   def show
