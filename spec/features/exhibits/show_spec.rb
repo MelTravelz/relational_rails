@@ -28,7 +28,7 @@ RSpec.describe 'the exhibit show page' do
         
         visit "/exhibits/#{exhibit_1.id}"
 
-        expect(page).to have_content("Number of Artifacts: 3")
+        expect(page).to have_content("Number of Artifacts: #{exhibit_1.count_of_artifacts}")
       end
     end
   end

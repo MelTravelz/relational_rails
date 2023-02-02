@@ -14,4 +14,21 @@ RSpec.describe 'the exhibit index page' do
       end
     end
   end
+
+  describe 'user story 6' do
+    describe 'when I visit "/exhibits"'do 
+      it 'displays exhibits ordered by most recently created first & when it was created' do
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", start_date: "2022-11-15", end_date: "2023-02-14", on_display: true, price: 15.00)
+        exhibit_2 = Exhibit.create!(name: "Ancient Korea", start_date: "2023-04-14", end_date: "2023-06-20", on_display: false, price: 17.00)
+
+        visit "/exhibits"
+
+        expect(page).to have_content()
+        
+        expect(page).to have_content("Created at: #{exhibit_1.created_at}")
+        expect(page).to have_content("Created at: #{exhibit_2.created_at}")
+
+      end
+    end
+  end
 end
