@@ -42,7 +42,7 @@ RSpec.describe 'the exhibit index page' do
     describe 'when I visit "/exhibits"'do 
       it 'I see a link at the top of the page that takes me to the Artifacts Index page' do
         visit "/exhibits"
-        expect(page).to have_link("All Artifacts", href: "http://localhost:3000/artifacts")
+        expect(page).to have_link("All Artifacts", href: "/artifacts")
       end
     end
   end
@@ -51,7 +51,7 @@ RSpec.describe 'the exhibit index page' do
     describe 'when I visit "/exhibits"'do 
       it 'I see a link at the top of the page that takes me to the Exhibits Index page' do
         visit "/exhibits"
-        expect(page).to have_link("All Exhibits", href: "http://localhost:3000/exhibits")
+        expect(page).to have_link("All Exhibits", href: "/exhibits")
       end
     end
   end
