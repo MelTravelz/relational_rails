@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 2023_01_30_224430) do
   create_table "artifacts", force: :cascade do |t|
     t.bigint "exhibit_id"
     t.string "name"
+    t.string "material"
+    t.string "year_created"
+    t.integer "total_pieces"
     t.boolean "on_loan"
-    t.integer "year_created"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exhibit_id"], name: "index_artifacts_on_exhibit_id"
@@ -27,6 +29,8 @@ ActiveRecord::Schema.define(version: 2023_01_30_224430) do
 
   create_table "exhibits", force: :cascade do |t|
     t.string "name"
+    t.string "start_date"
+    t.string "end_date"
     t.boolean "on_display"
     t.float "price"
     t.datetime "created_at", null: false

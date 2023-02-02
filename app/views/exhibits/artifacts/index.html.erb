@@ -1,0 +1,10 @@
+<h1>Artifacts in <%= @exhibit.name %> Exhibit</h1>
+
+<% @artifacts.each do |artifact| %>
+  <h3><%= artifact.name %></h3>
+  <p>Material: <%= artifact.material %></p>
+  <p>Date Created: <%= artifact.year_created %></p>
+  <p>Total pieces: <%= artifact.total_pieces %></p>
+  <p>On loan from another museum? <%= artifact.on_loan %></p>
+  <br>
+<% end %>
