@@ -44,7 +44,7 @@ RSpec.describe 'the exhibit show page' do
         
         visit "/exhibits/#{exhibit_1.id}"
 
-        expect(page).to have_link("All Artifacts", href: "http://localhost:3000/artifacts")
+        expect(page).to have_link("All Artifacts", href: "/artifacts")
       end
     end
   end
@@ -60,7 +60,19 @@ RSpec.describe 'the exhibit show page' do
         
         visit "/exhibits/#{exhibit_1.id}"
 
-        expect(page).to have_link("All Exhibits", href: "http://localhost:3000/exhibits")
+        expect(page).to have_link("All Exhibits", href: "/exhibits")
+      end
+    end
+  end
+
+  describe 'user story 10' do
+    describe 'when I visit "/exhibits/:id"' do
+      it 'I see a link to the exhibits artifacts page (/exhibits/:id/artifacts)' do
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", start_date: "2022-11-15", end_date: "2023-02-14", on_display: true, price: 15.00)
+
+        visit "/exhibits/#{exhibit_1.id}"
+
+        expect(page).to have_link("View All Artifacts for this Exhibit", href: "/exhibits/#{exhibit_1.id}/artifacts")
       end
     end
   end

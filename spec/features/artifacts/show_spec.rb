@@ -26,7 +26,7 @@ RSpec.describe 'the artifact show page' do
 
         visit "/artifacts/#{artifact_1.id}"
 
-        expect(page).to have_link("All Artifacts", href: "http://localhost:3000/artifacts")
+        expect(page).to have_link("All Artifacts", href: "h/artifacts")
       end
     end
   end
@@ -39,7 +39,7 @@ RSpec.describe 'the artifact show page' do
 
         visit "/artifacts/#{artifact_1.id}"
 
-        expect(page).to have_link("All Exhibits", href: "http://localhost:3000/exhibits")
+        expect(page).to have_link("All Exhibits", href: "/exhibits")
       end
     end
   end
