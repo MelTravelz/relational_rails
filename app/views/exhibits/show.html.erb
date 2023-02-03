@@ -5,7 +5,7 @@
 <p>Currently on display? <%= @exhibit.on_display %></p>
 <p>Price: <%= @exhibit.price %></p>
 <br>
-<p>Number of Artifacts: <%= @exhibit.count_of_artifacts %></p>
+<p>Number of Artifacts: <%= @artifact_count %></p>
 <%= link_to "View All Artifacts for this Exhibit", "/exhibits/#{@exhibit.id}/artifacts" %>
 
 
