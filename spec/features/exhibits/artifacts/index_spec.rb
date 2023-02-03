@@ -56,7 +56,7 @@ RSpec.describe 'the exhibit/artifacts index page' do
         artifact_2 = Artifact.create!(exhibit: exhibit_1, name: "Divine Bell of King Seongdeok", material: "metal", year_created: "771 BCE", total_pieces: 2, on_loan: true) 
 
         visit "/exhibits/#{exhibit_1.id}/artifacts"
-        require 'pry'; binding.pry
+
         expect(page).to have_link("All Exhibits", href: "/exhibits")
       end
     end
