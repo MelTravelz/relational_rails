@@ -4,8 +4,8 @@ RSpec.describe 'the exhibit index page' do
   describe 'user story 1' do
     describe 'when I visit "/exhibits"'do 
       it 'displays all the exhibit names' do
-        exhibit_1 = Exhibit.create!(name: "Ancient Rome", start_date: "2022-11-15", end_date: "2023-02-14", on_display: true, price: 15.00)
-        exhibit_2 = Exhibit.create!(name: "Ancient Korea", start_date: "2023-04-14", end_date: "2023-06-20", on_display: false, price: 17.00)
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
+        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
 
         visit "/exhibits"
 
@@ -18,8 +18,8 @@ RSpec.describe 'the exhibit index page' do
   describe 'user story 6' do
     describe 'when I visit "/exhibits"'do 
       it 'displays exhibits ordered by most recently created first' do
-        exhibit_1 = Exhibit.create!(name: "Ancient Rome", start_date: "2022-11-15", end_date: "2023-02-14", on_display: true, price: 15.00, created_at: Time.now - 2.hour)
-        exhibit_2 = Exhibit.create!(name: "Ancient Korea", start_date: "2023-04-14", end_date: "2023-06-20", on_display: false, price: 17.00, created_at: Time.now - 1.hour)
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00, created_at: Time.now - 2.hour)
+        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00, created_at: Time.now - 1.hour)
 
         visit "/exhibits"
 
@@ -27,8 +27,8 @@ RSpec.describe 'the exhibit index page' do
       end
 
       it 'displays when it was created_at next to each of the records' do
-        exhibit_1 = Exhibit.create!(name: "Ancient Rome", start_date: "2022-11-15", end_date: "2023-02-14", on_display: true, price: 15.00, created_at: Time.now - 2.hour)
-        exhibit_2 = Exhibit.create!(name: "Ancient Korea", start_date: "2023-04-14", end_date: "2023-06-20", on_display: false, price: 17.00, created_at: Time.now - 1.hour)
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00, created_at: Time.now - 2.hour)
+        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00, created_at: Time.now - 1.hour)
 
         visit "/exhibits"
 
@@ -56,4 +56,12 @@ RSpec.describe 'the exhibit index page' do
     end
   end
 
+  describe 'user story 11' do
+    describe 'when I visit "/exhibits"' do
+      it 'I see a link to create a new exhibit record that takes me to the Exhibits New page' do
+        visit "/exhibits"
+        expect(page).to have_link("New Exhibit", href: "/exhibits/new")
+      end
+    end
+  end
 end

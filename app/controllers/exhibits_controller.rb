@@ -11,4 +11,10 @@ class ExhibitsController < ApplicationController
     @artifact_count = @exhibit.count_of_artifacts
   end
 
+  def new
+  end
+
+  def create
+    @exhibit = Exhibit.create!(name: params[:name], start_date: params[:start_date], end_date: params[:end_date], on_display: params[:on_display], price: params[:price])
+  end
 end

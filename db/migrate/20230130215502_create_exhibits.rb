@@ -4,8 +4,6 @@ class CreateExhibits < ActiveRecord::Migration[5.2]
       # Line above is saying: create a string column in the table named :name
 
       t.string :name
-      t.string :start_date
-      t.string :end_date
       t.boolean :on_display
       t.float :price
 

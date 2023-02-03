@@ -8,7 +8,7 @@ RSpec.describe 'the exhibit/artifacts index page' do
   describe 'user story 5' do
     describe 'when I visit "/exhibits/:id/artifacts"' do
       it 'displays one exhibit name and all its artifacts and artifacts attributes' do
-        exhibit_1 = Exhibit.create!(name: "Ancient Korea", start_date: "2023-04-14", end_date: "2023-06-20", on_display: false, price: 17.00)
+        exhibit_1 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
 
         artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Roof-end Tile with Face Design", material: "tile", year_created: "800 BCE", total_pieces: 1, on_loan: true) 
         artifact_2 = Artifact.create!(exhibit: exhibit_1, name: "Divine Bell of King Seongdeok", material: "metal", year_created: "771 BCE", total_pieces: 2, on_loan: true) 
@@ -35,7 +35,7 @@ RSpec.describe 'the exhibit/artifacts index page' do
   describe 'user story 8' do
     describe 'when I visit "/exhibits/:id/artifacts"' do
       it 'I see a link at the top of the page that takes me to the Artifacts Index page' do
-        exhibit_1 = Exhibit.create!(name: "Ancient Korea", start_date: "2023-04-14", end_date: "2023-06-20", on_display: false, price: 17.00)
+        exhibit_1 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
 
         artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Roof-end Tile with Face Design", material: "tile", year_created: "800 BCE", total_pieces: 1, on_loan: true) 
         artifact_2 = Artifact.create!(exhibit: exhibit_1, name: "Divine Bell of King Seongdeok", material: "metal", year_created: "771 BCE", total_pieces: 2, on_loan: true) 
@@ -50,7 +50,7 @@ RSpec.describe 'the exhibit/artifacts index page' do
   describe 'user story 9' do
     describe 'when I visit "/exhibits/:id/artifacts"' do
       it 'I see a link at the top of the page that takes me to the Exhibits Index page' do
-        exhibit_1 = Exhibit.create!(name: "Ancient Korea", start_date: "2023-04-14", end_date: "2023-06-20", on_display: false, price: 17.00)
+        exhibit_1 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
 
         artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Roof-end Tile with Face Design", material: "tile", year_created: "800 BCE", total_pieces: 1, on_loan: true) 
         artifact_2 = Artifact.create!(exhibit: exhibit_1, name: "Divine Bell of King Seongdeok", material: "metal", year_created: "771 BCE", total_pieces: 2, on_loan: true) 

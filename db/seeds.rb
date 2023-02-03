@@ -10,9 +10,9 @@ Exhibit.destroy_all
 Artifact.destroy_all
 
 # Exhibits: 
-exhibit_1 = Exhibit.create!(name: "Ancient Aliens", start_date: "2022-11-15", end_date: "2023-02-14", on_display: true, price: 15.00)
-exhibit_2 = Exhibit.create!(name: "Ancient Curiosities", start_date: "2023-02-01", end_date: "2023-04-30", on_display: true, price: 20.00)
-exhibit_3 = Exhibit.create!(name: "Ancient Adventurers", start_date: "2023-04-14", end_date: "2023-06-20", on_display: false, price: 17.00)
+exhibit_1 = Exhibit.create!(name: "Ancient Aliens", on_display: true, price: 15.00)
+exhibit_2 = Exhibit.create!(name: "Ancient Curiosities", on_display: true, price: 20.00)
+exhibit_3 = Exhibit.create!(name: "Ancient Adventurers", on_display: false, price: 17.00)
 
 # Artifacts: 
 artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "ET's Home Phone", material: "plastic", year_created: "200,000 BCE", total_pieces: 4, on_loan: false)
