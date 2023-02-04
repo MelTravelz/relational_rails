@@ -1,6 +1,6 @@
 class Exhibits::ArtifactsController < ApplicationController
   def index
-    @exhibit = Exhibit.find(params[:exhibit_id])
+    @exhibit = Exhibit.find(params[:id])
     @artifacts = @exhibit.artifacts 
   end
 end

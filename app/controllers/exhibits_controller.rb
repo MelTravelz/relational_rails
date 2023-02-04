@@ -17,11 +17,24 @@ class ExhibitsController < ApplicationController
   def create
     # This is one way to do this -> OR create the helper method below and jump to next line.
     # exhibit = Exhibit.create!(name: params[:name], on_display: params[:on_display], price: params[:price])
-    exhibit = Exhibit.create!(exhibit_params)
+    Exhibit.create!(exhibit_params)
+    # exhibit = Exhibit.create!(exhibit_params)
     redirect_to "/exhibits"
   end
 
-  def exhibit_params
+  def edit
+    @exhibit = Exhibit.find(params[:id])
+  end
+
+  def update
+    @exhibit = Exhibit.find(params[:id])
+    @exhibit.update(exhibit_params)
+    redirect_to "/exhibits/#{@exhibit.id}"
+  end
+
+
+   # This is called "strong params"
+   def exhibit_params
     params.permit(:name, :on_display, :price)
   end
 end

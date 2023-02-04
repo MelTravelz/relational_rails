@@ -1,10 +1,7 @@
 <h1><%= @exhibit.name %></h1>
-
 <p>Currently on display? <%= @exhibit.on_display %></p>
 <p>Price: <%= @exhibit.price %></p>
-<br>
 <p>Number of Artifacts: <%= @artifact_count %></p>
-<%= link_to "View All Artifacts for this Exhibit", "/exhibits/#{@exhibit.id}/artifacts" %>
-
-
-
+<p><%= link_to "View All Artifacts for this Exhibit", "/exhibits/#{@exhibit.id}/artifacts" %></p>
+<br>
+<p><%= button_to "Update Exhibit", "/exhibits/#{@exhibit.id}/edit", method: :get %></p>
