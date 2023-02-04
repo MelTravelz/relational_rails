@@ -3,13 +3,6 @@ require 'rails_helper'
 RSpec.describe 'the exhibit creation page' do
   describe 'user story 11' do
     describe 'when I visit "/exhibits/new"' do
-      it 'links to the creation page from the exhibits index page' do
-        visit "/exhibits"
-        click_link("New Exhibit")
-
-        expect(current_path).to eq("/exhibits/new")
-      end
-
       it "can create a new exhibit" do
         visit "/exhibits/new"
 
@@ -19,8 +12,9 @@ RSpec.describe 'the exhibit creation page' do
         
         click_button("Create Exhibit")
 
-        new_exhibit_id = Artist.last.id
-        expect(current_path).to eq("artists/#{new_exhibit_id}")
+        # new_exhibit_id = Exhibit.last.id (if we wanted the route to go to a show page for a specific id)
+        # you'd then string interpolate the route below:
+        expect(current_path).to eq("/exhibits")
         expect(page).to have_content("Ancient Anatolia")
       end
     end

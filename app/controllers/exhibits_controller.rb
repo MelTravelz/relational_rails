@@ -15,6 +15,7 @@ class ExhibitsController < ApplicationController
   end
 
   def create
-    @exhibit = Exhibit.create!(name: params[:name], start_date: params[:start_date], end_date: params[:end_date], on_display: params[:on_display], price: params[:price])
+    exhibit = Exhibit.create!(name: params[:name], on_display: params[:on_display], price: params[:price])
+    redirect_to "/exhibits"
   end
 end

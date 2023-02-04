@@ -58,9 +58,15 @@ RSpec.describe 'the exhibit index page' do
 
   describe 'user story 11' do
     describe 'when I visit "/exhibits"' do
-      it 'I see a link to create a new exhibit record that takes me to the Exhibits New page' do
+      it 'I see a link to create a new exhibit record' do
         visit "/exhibits"
-        expect(page).to have_link("New Exhibit", href: "/exhibits/new")
+        expect(page).to have_link("New Exhibit")
+      end
+
+      it 'the new exhibit link takes me to the exhibits new page' do
+        visit "/exhibits"
+        click_link("New Exhibit")
+        expect(current_path).to eq("/exhibits/new")      
       end
     end
   end
