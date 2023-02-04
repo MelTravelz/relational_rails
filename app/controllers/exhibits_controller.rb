@@ -11,4 +11,11 @@ class ExhibitsController < ApplicationController
     @artifact_count = @exhibit.count_of_artifacts
   end
 
+  def new
+  end
+
+  def create
+    exhibit = Exhibit.create!(name: params[:name], on_display: params[:on_display], price: params[:price])
+    redirect_to "/exhibits"
+  end
 end

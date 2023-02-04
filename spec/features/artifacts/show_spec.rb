@@ -4,7 +4,7 @@ RSpec.describe 'the artifact show page' do
   describe 'user story 4' do
     describe 'when I visit "/artifacts/:id"' do
       it 'displays one artifact name and all its attributes' do
-        exhibit_1 = Exhibit.create!(name: "Ancient Rome", start_date: "2022-11-15", end_date: "2023-02-14", on_display: true, price: 15.00)
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
         artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
 
         visit "/artifacts/#{artifact_1.id}"
@@ -21,7 +21,7 @@ RSpec.describe 'the artifact show page' do
   describe 'user story 8' do
     describe 'when I visit "/artifacts/:id"'do 
       it 'I see a link at the top of the page that takes me to the Artifacts Index page' do
-        exhibit_1 = Exhibit.create!(name: "Ancient Rome", start_date: "2022-11-15", end_date: "2023-02-14", on_display: true, price: 15.00)
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
         artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
 
         visit "/artifacts/#{artifact_1.id}"
@@ -34,7 +34,7 @@ RSpec.describe 'the artifact show page' do
   describe 'user story 9' do
     describe 'when I visit "/artifacts/:id"'do 
       it 'I see a link at the top of the page that takes me to the Exhibits Index page' do
-        exhibit_1 = Exhibit.create!(name: "Ancient Rome", start_date: "2022-11-15", end_date: "2023-02-14", on_display: true, price: 15.00)
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
         artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
 
         visit "/artifacts/#{artifact_1.id}"

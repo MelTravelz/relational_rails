@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Exhibit, type: :model do
-  before do
-    Artifact.destroy_all
-    Exhibit.destroy_all
-  end 
+  # before do
+  #   Artifact.destroy_all
+  #   Exhibit.destroy_all
+  # end 
 
   it {should have_many :artifacts}
 
@@ -12,8 +12,8 @@ RSpec.describe Exhibit, type: :model do
     describe 'user story 6' do
       describe '#order_by_most_recently_created' do
         it 'displays the exhibits in order of most recetly created first' do
-          exhibit_1 = Exhibit.create!(name: "Ancient Rome", start_date: "2022-11-15", end_date: "2023-02-14", on_display: true, price: 15.00, created_at: Time.now - 2.hour)
-          exhibit_2 = Exhibit.create!(name: "Ancient Korea", start_date: "2023-04-14", end_date: "2023-06-20", on_display: false, price: 17.00, created_at: Time.now - 1.hour)
+          exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00, created_at: Time.now - 2.hour)
+          exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00, created_at: Time.now - 1.hour)
 
           # This expect is calling on all the Exhibit records... a class method: 
           expect(Exhibit.order_by_most_recently_created.to_a).to eq([exhibit_2, exhibit_1])
@@ -25,7 +25,7 @@ RSpec.describe Exhibit, type: :model do
   describe 'user story 7' do
     describe '#count_of_artifacts' do
       it 'returns the count of artifacts in an exhibit' do
-        exhibit_1 = Exhibit.create!(name: "Ancient Rome", start_date: "2022-11-15", end_date: "2023-02-14", on_display: true, price: 15.00)
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
 
         artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "marble", year_created: "45 BCE", on_loan: false, total_pieces: 5) 
         artifact_2 = Artifact.create!(exhibit: exhibit_1, name: "Nummus Aureus Coin", material: "gold", year_created: "312 CE", on_loan: true, total_pieces: 12) 

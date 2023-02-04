@@ -1,0 +1,21 @@
+<%= form_with url: '/exhibits', method: :post, local: true do |form| %>
+  <br>
+  <br>
+  <%= form.label :name, "New Exhibit Name" %>
+  <%= form.text_field :name%>
+  <%# <%= form.text_field :name, value: @exhibit.name This might need to go in edit.html.erb%>
+  <br>
+  <br>
+  <%= form.label :on_display, "Exhibit Currently on Display:" %>
+  <%= form.radio_button :on_display, 'true' %>
+  <%= form.label :on_display_true, "True" %>
+  <%= form.radio_button :on_display, 'false' %>
+  <%= form.label :on_display_false, "False" %>
+  <br>
+  <br>
+  <%= form.label :price, "Price in USD" %>
+  <%= form.number_field :price, step: 0.01 %>
+  <br>
+  <br>
+  <%= form.submit "Create Exhibit" %>
+ <% end %>

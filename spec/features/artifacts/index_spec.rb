@@ -4,8 +4,8 @@ RSpec.describe 'the artifact index page' do
   describe 'user story 3' do
     describe 'when I visit "/artifacts"'do 
       it 'displays all the artifacts and their attributes' do
-        exhibit_1 = Exhibit.create!(name: "Ancient Rome", start_date: "2022-11-15", end_date: "2023-02-14", on_display: true, price: 15.00)
-        exhibit_2 = Exhibit.create!(name: "Ancient Korea", start_date: "2023-04-14", end_date: "2023-06-20", on_display: false, price: 17.00)
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
+        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
 
         artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
         artifact_2 = Artifact.create!(exhibit: exhibit_2, name: "Roof-end Tile with Face Design", material: "tile", year_created: "800 BCE", total_pieces: 1,  on_loan: true) 

@@ -29,8 +29,6 @@ ActiveRecord::Schema.define(version: 2023_01_30_224430) do
 
   create_table "exhibits", force: :cascade do |t|
     t.string "name"
-    t.string "start_date"
-    t.string "end_date"
     t.boolean "on_display"
     t.float "price"
     t.datetime "created_at", null: false
