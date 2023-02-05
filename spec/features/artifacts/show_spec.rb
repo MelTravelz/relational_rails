@@ -67,4 +67,30 @@ RSpec.describe 'the artifact show page' do
     end
   end
 
+  describe 'user story 20' do
+    describe 'when I visit "/artifacts/:id"' do
+      it 'I see a link to delete the artifact record' do
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
+        artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
+        artifact_2 = Artifact.create!(exhibit: exhibit_1, name: "Galdiator Cup", material: "glass", year_created: "75 BCE", on_loan: true, total_pieces: 1) 
+       
+        visit "/artifacts/#{artifact_1.id}"
+
+        expect(page).to have_link("Delete Artifact: #{artifact_1.name}")
+      end
+
+      # xit 'when I click on the link it deletes the artifact & redirected to artifacts index page' do
+      #   exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
+      #   artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
+      #   artifact_2 = Artifact.create!(exhibit: exhibit_1, name: "Galdiator Cup", material: "glass", year_created: "75 BCE", on_loan: true, total_pieces: 1) 
+  
+      #   visit "/artifacts/#{artifact_1.id}"
+      #   click_link("Delete Artifact: #{artifact_1.name}")
+
+      #   expect(current_path).to eq("/artifacts")      
+      # end
+    end 
+  end
+
+
 end
