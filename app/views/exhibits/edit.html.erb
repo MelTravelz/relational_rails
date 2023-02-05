@@ -1,13 +1,6 @@
 <h1>Exhibit Update Form: <%= @exhibit.name %></h1>
-<br>
-<p>Current Status:</p>
-<p>Exhibit Name: <%= @exhibit.name %></p>
-<p>Display Status: <%= @exhibit.on_display %></p>
-<p>Price: <%= @exhibit.price %></p>
-<br>
+<br> 
 <%= form_with url: "/exhibits/#{@exhibit.id}", method: :patch, local: true do |form| %>
-  <br>
-  <br> 
   <%= form.label :name, "Update Exhibit Name" %>
   <%= form.text_field :name, value: @exhibit.name %>
   <br>
@@ -20,7 +13,8 @@
   <br>
   <br>
   <%= form.label :price, "Update Price in USD" %>
-  <%= form.number_field :price, step: 0.01 %>
+  <%= form.number_field :price, step: 0.01, value: @exhibit.price %>
+  <br>
   <br>
   <br>
   <%= form.submit "Sumbit Update" %>

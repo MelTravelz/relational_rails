@@ -70,4 +70,29 @@ RSpec.describe 'the exhibit index page' do
       end
     end
   end
+
+  describe 'user story 17' do
+    describe 'when I visit "/exhibits"' do
+      it 'next to each record, I see a link to edit that exhibit record' do
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
+        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
+        
+        visit "/exhibits"
+
+        expect(page).to have_link("Update Exhibit: #{exhibit_1.name}")
+        expect(page).to have_link("Update Exhibit: #{exhibit_2.name}")
+      end
+
+      it 'when I click on the link it takes me to the exhibits edit page' do 
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
+        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
+
+        visit "/exhibits"
+        click_link("Update Exhibit: #{exhibit_1.name}")
+
+        expect(current_path).to eq("/exhibits/#{exhibit_1.id}/edit")      
+      end
+    end
+  end
+
 end

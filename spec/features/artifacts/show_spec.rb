@@ -12,8 +12,8 @@ RSpec.describe 'the artifact show page' do
         expect(page).to have_content(artifact_1.name)
         expect(page).to have_content("Material: #{artifact_1.material}")
         expect(page).to have_content("Date Created: #{artifact_1.year_created}")
-        expect(page).to have_content("Total pieces: #{artifact_1.total_pieces}")
-        expect(page).to have_content("On loan from another museum? #{artifact_1.on_loan}")
+        expect(page).to have_content("Total Pieces: #{artifact_1.total_pieces}")
+        expect(page).to have_content("On Loan from Another Museum? #{artifact_1.on_loan}")
       end
     end
   end

@@ -6,5 +6,6 @@
   <p>Date Created: <%= artifact.year_created %></p>
   <p>Total pieces: <%= artifact.total_pieces %></p>
   <p>On loan from another museum? <%= artifact.on_loan %></p>
-  <br> 
+  <p><%= link_to "Update Artifact: #{artifact.name}", "/artifacts/#{artifact.id}/edit" %></p>
+  <br>
 <% end %>
