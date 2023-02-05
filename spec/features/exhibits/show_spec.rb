@@ -79,15 +79,17 @@ RSpec.describe 'the exhibit show page' do
     describe 'when I visit "/exhibits/:id"' do
       it 'I see a link to update the exhibit record' do
         exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
+        
         visit "/exhibits/#{exhibit_1.id}"
-        expect(page).to have_button("Update Exhibit")
+        
+        expect(page).to have_link("Update Exhibit")
       end
 
       it 'when I click on the link it takes me to the exhibits edit page' do
         exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
         
         visit "/exhibits/#{exhibit_1.id}"
-        click_button("Update Exhibit")
+        click_link("Update Exhibit")
 
         expect(current_path).to eq("/exhibits/#{exhibit_1.id}/edit")      
       end
