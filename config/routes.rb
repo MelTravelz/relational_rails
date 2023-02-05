@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   patch '/exhibits/:id', to: 'exhibits#update'
   get '/exhibits/:id', to: 'exhibits#show'
   get '/exhibits/:id/edit', to: 'exhibits#edit'
-
+  delete '/exhibits/:id', to: 'exhibits#destroy'
   
   get '/exhibits/:id/artifacts', to: 'exhibits/artifacts#index'
   get '/exhibits/:id/artifacts/new', to: 'exhibits/artifacts#new'
@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   patch '/artifacts/:id', to: 'artifacts#update'
   get '/artifacts/:id', to: 'artifacts#show'
   get '/artifacts/:id/edit', to: 'artifacts#edit'
+  delete '/artifacts/:id', to: 'artifacts#destroy'
 end

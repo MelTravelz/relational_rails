@@ -18,6 +18,11 @@ class ArtifactsController < ApplicationController
     redirect_to "/artifacts/#{@artifact.id}"
   end
 
+  def destroy
+    Artifact.destroy(params[:id])
+    redirect_to "/artifacts"
+  end
+
   private
   def artifact_params
    params.permit(:name, :material, :year_created, :total_pieces, :on_loan)
