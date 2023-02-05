@@ -95,4 +95,47 @@ RSpec.describe 'the exhibit show page' do
       end
     end
   end
+
+  describe 'user story 19' do
+    describe 'when I visit "/exhibits/:id"' do
+      it 'I see a link to delete the exhibit record' do
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
+        
+        visit "/exhibits/#{exhibit_1.id}"
+
+        expect(page).to have_link("Delete Exhibit")
+      end
+
+      it 'when I click on the link it deletes the exhibit and all associated artifacts & redirected to exhibits index page' do
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
+        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
+        artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "marble", year_created: "45 BCE", total_pieces: 5, on_loan: false, created_at: Time.now - 2.hour) 
+        artifact_2 = Artifact.create!(exhibit: exhibit_2, name: "Roof-end Tile with Face Design", material: "tile", year_created: "800 BCE", total_pieces: 1, on_loan: true, created_at: Time.now - 1.hour) 
+
+        visit "/exhibits/#{exhibit_1.id}"
+        click_link("Delete Exhibit")
+
+        expect(current_path).to eq("/exhibits")      
+        expect(page).to_not have_content(exhibit_1.name)
+        expect(page).to_not have_content("Created at: #{exhibit_1.created_at}")
+        expect(page).to have_content(exhibit_2.name)
+        expect(page).to have_content("Created at: #{exhibit_2.created_at}")
+
+        visit "/artifacts"
+
+        expect(page).to_not have_content(artifact_1.name)
+        expect(page).to_not have_content("Material: #{artifact_1.material}")
+        expect(page).to_not have_content("Date Created: #{artifact_1.year_created}")
+        expect(page).to_not have_content("Total pieces: #{artifact_1.total_pieces}")
+        expect(page).to_not have_content("On Loan from Another Museum: #{artifact_1.on_loan}")
+
+        expect(page).to have_content(artifact_2.name)
+        expect(page).to have_content("Material: #{artifact_2.material}")
+        expect(page).to have_content("Date Created: #{artifact_2.year_created}")
+        expect(page).to have_content("Total pieces: #{artifact_2.total_pieces}")
+        expect(page).to have_content("On Loan from Another Museum: #{artifact_2.on_loan}")
+      end
+    end 
+  end
+
 end

@@ -17,13 +17,13 @@ RSpec.describe 'the exhibit/artifacts index page' do
         expect(page).to have_content("Material: #{artifact_1.material}")
         expect(page).to have_content("Date Created: #{artifact_1.year_created}")
         expect(page).to have_content("Total Pieces: #{artifact_1.total_pieces}")
-        expect(page).to have_content("On Loan from Another Museum? #{artifact_1.on_loan}")
+        expect(page).to have_content("On Loan from Another Museum: #{artifact_1.on_loan}")
 
         expect(page).to have_content(artifact_2.name)
         expect(page).to have_content("Material: #{artifact_2.material}")
         expect(page).to have_content("Date Created: #{artifact_2.year_created}")
         expect(page).to have_content("Total Pieces: #{artifact_2.total_pieces}")
-        expect(page).to have_content("On Loan from Another Museum? #{artifact_2.on_loan}")
+        expect(page).to have_content("On Loan from Another Museum: #{artifact_2.on_loan}")
       end
     end
   end
