@@ -79,8 +79,8 @@ RSpec.describe 'the exhibit index page' do
         
         visit "/exhibits"
 
-        expect(page).to have_link("Edit #{exhibit_1.name} Exhibit")
-        expect(page).to have_link("Edit #{exhibit_2.name} Exhibit")
+        expect(page).to have_link("Update Exhibit: #{exhibit_1.name}")
+        expect(page).to have_link("Update Exhibit: #{exhibit_2.name}")
       end
 
       it 'when I click on the link it takes me to the exhibits edit page' do 
@@ -88,7 +88,7 @@ RSpec.describe 'the exhibit index page' do
         exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
 
         visit "/exhibits"
-        click_link("Edit #{exhibit_1.name} Exhibit")
+        click_link("Update Exhibit: #{exhibit_1.name}")
 
         expect(current_path).to eq("/exhibits/#{exhibit_1.id}/edit")      
       end

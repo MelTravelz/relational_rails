@@ -1,29 +1,20 @@
 <h1>Artifact Update Form: <%= @artifact.name %></h1>
 <br>
-<p>Current Status:</p>
-<p>Artifact Name: <%= @artifact.name %></p>
-<p>Material: <%= @artifact.material %></p>
-<p>Year Created: <%= @artifact.year_created %></p>
-<p>Number of Total Pieces: <%= @artifact.total_pieces %></p>
-<p>On Loan from Other Museum Status: <%= @artifact.on_loan %></p>
-
 <%= form_with url: "/artifacts/#{@artifact.id}", method: :patch, local: true do |form| %>
-  <br>
-  <br>
   <%= form.label :name, "Update Artifact Name" %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, value: @artifact.name %>
   <br>
   <br>
   <%= form.label :material, "Update Material" %>
-  <%= form.text_field :material %>
+  <%= form.text_field :material, value: @artifact.material %>
   <br>
   <br>
   <%= form.label :year_created, "Update Year Created (include BCE or CE)" %>
-  <%= form.text_field :year_created %>
+  <%= form.text_field :year_created, value: @artifact.year_created %>
   <br>
   <br>
   <%= form.label :total_pieces, "Update Number of Total Pieces" %>
-  <%= form.number_field :total_pieces %>
+  <%= form.number_field :total_pieces, value: @artifact.total_pieces %>
   <br>
   <br>
   <%= form.label :on_loan, "Update Artifact On Loan from Other Museum:" %>
@@ -33,5 +24,6 @@
   <%= form.label :on_loan_false, "False" %>
   <br>
   <br>
+  <br> 
   <%= form.submit "Update Artifact" %>
  <% end %>
