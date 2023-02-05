@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'the exhibit update page' do
   describe 'user story 12' do
-    describe 'when I visit "/exhibits/:id/' do
+    describe 'when I visit "/exhibits/:id/edit' do
     it "can update an exhibit" do
       exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
       visit "/exhibits/#{exhibit_1.id}/edit"

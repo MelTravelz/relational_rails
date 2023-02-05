@@ -1,3 +1,5 @@
+<h1>Create New Artifact Form </h1>
+<br>
 <%= form_with url: "/exhibits/#{@exhibit.id}/artifacts", method: :post, local: true do |form| %>
   <br>
   <br>
@@ -18,10 +20,8 @@
   <br>
   <br>
   <%= form.label :on_loan, "Artifact On Loan from Other Museum:" %>
-  
   <%= form.radio_button :on_loan, 'true' %>
   <%= form.label :on_loan_true, "True" %>
-
   <%= form.radio_button :on_loan, 'false' %>
   <%= form.label :on_loan_false, "False" %>
   <br>

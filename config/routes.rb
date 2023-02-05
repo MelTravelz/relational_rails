@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   post '/exhibits/:id/artifacts', to: 'exhibits/artifacts#create'
 
   get '/artifacts', to: 'artifacts#index'
+  patch '/artifacts/:id', to: 'artifacts#update'
   get '/artifacts/:id', to: 'artifacts#show'
+  get '/artifacts/:id/edit', to: 'artifacts#edit'
 end
