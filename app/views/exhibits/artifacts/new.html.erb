@@ -1,0 +1,30 @@
+<%= form_with url: "/exhibits/#{@exhibit.id}/artifacts", method: :post, local: true do |form| %>
+  <br>
+  <br>
+  <%= form.label :name, "New Artifact Name" %>
+  <%= form.text_field :name %>
+  <br>
+  <br>
+  <%= form.label :material, "Material" %>
+  <%= form.text_field :material %>
+  <br>
+  <br>
+  <%= form.label :year_created, "Year Created (include BCE or CE)" %>
+  <%= form.text_field :year_created %>
+  <br>
+  <br>
+  <%= form.label :total_pieces, "Number of Total Pieces" %>
+  <%= form.text_field :total_pieces %>
+  <br>
+  <br>
+  <%= form.label :on_loan, "Artifact On Loan from Other Museum:" %>
+  
+  <%= form.radio_button :on_loan, 'true' %>
+  <%= form.label :on_loan_true, "True" %>
+
+  <%= form.radio_button :on_loan, 'false' %>
+  <%= form.label :on_loan_false, "False" %>
+  <br>
+  <br>
+  <%= form.submit "Create Artifact" %>
+ <% end %>
