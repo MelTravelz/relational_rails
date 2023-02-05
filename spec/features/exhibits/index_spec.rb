@@ -95,4 +95,33 @@ RSpec.describe 'the exhibit index page' do
     end
   end
 
+  describe 'user story 22' do
+    describe 'when I visit "/exhibits"' do
+      it 'next to each record, I see a link to delete that exhibit record' do
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00, created_at: Time.now - 2.hour)
+        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00, created_at: Time.now - 1.hour)
+
+        visit "/exhibits"
+
+        expect(page).to have_link("Delete Exhibit: #{exhibit_1.name}")
+        expect(page).to have_link("Delete Exhibit: #{exhibit_2.name}")
+      end
+
+      it 'can delete an exhibit(and all associated artifacts) & redirected to exhibit index page' do
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00, created_at: Time.now - 2.hour)
+        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00, created_at: Time.now - 1.hour)
+
+        visit "/exhibits"
+        click_link("Delete Exhibit: #{exhibit_1.name}")
+
+        expect(current_path).to eq("/exhibits")  
+
+        expect(page).to_not have_content(exhibit_1.name)
+        expect(page).to_not have_content("Created at: #{exhibit_1.created_at}")
+
+        expect(page).to have_content(exhibit_2.name)
+        expect(page).to have_content("Created at: #{exhibit_2.created_at}")
+      end
+    end
+  end
 end

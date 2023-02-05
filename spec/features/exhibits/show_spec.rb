@@ -126,13 +126,15 @@ RSpec.describe 'the exhibit show page' do
         expect(page).to_not have_content(artifact_1.name)
         expect(page).to_not have_content("Material: #{artifact_1.material}")
         expect(page).to_not have_content("Date Created: #{artifact_1.year_created}")
-        expect(page).to_not have_content("Total pieces: #{artifact_1.total_pieces}")
-        expect(page).to_not have_content("On Loan from Another Museum: #{artifact_1.on_loan}")
+        expect(page).to_not have_content("Total Pieces: #{artifact_1.total_pieces}")
+         # Not sure what to do with this test: for now it passes but since its a boolean, most likely
+        # another artifact would have this same output
+        # expect(page).to_not have_content("On Loan from Another Museum: #{artifact_1.on_loan}")
 
         expect(page).to have_content(artifact_2.name)
         expect(page).to have_content("Material: #{artifact_2.material}")
         expect(page).to have_content("Date Created: #{artifact_2.year_created}")
-        expect(page).to have_content("Total pieces: #{artifact_2.total_pieces}")
+        expect(page).to have_content("Total Pieces: #{artifact_2.total_pieces}")
         expect(page).to have_content("On Loan from Another Museum: #{artifact_2.on_loan}")
       end
     end 

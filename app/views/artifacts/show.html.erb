@@ -3,7 +3,7 @@
 <p>Material: <%= @artifact.material %></p>
 <p>Date Created: <%= @artifact.year_created %></p>
 <p>Total Pieces: <%= @artifact.total_pieces %></p>
-<p>On Loan from Another Museum? <%= @artifact.on_loan %></p>
+<p>On Loan from Another Museum: <%= @artifact.on_loan %></p>
 <br>
 <p><%= link_to "Update Artifact", "/artifacts/#{@artifact.id}/edit", method: :get %></p>
 <br>

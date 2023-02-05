@@ -4,8 +4,9 @@
     <h3><%= exhibit.name %></h3> 
     <p>Created at: <%= exhibit.created_at %></p>
      <p><%= link_to "Update Exhibit: #{exhibit.name}", "/exhibits/#{exhibit.id}/edit" %></p>
+     <br>
+     <p><%= link_to "Delete Exhibit: #{exhibit.name}", "/exhibits/#{exhibit.id}", method: :delete %></p>
   <br>
 <% end %>
 <br>
 <%= link_to "New Exhibit", "/exhibits/new" %>
-

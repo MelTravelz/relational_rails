@@ -20,7 +20,7 @@ RSpec.describe 'the exhibit/artifacts index page' do
         expect(page).to have_content("Material: Gold")
         expect(page).to have_content("Date Created: 400 BCE")
         expect(page).to have_content("Total Pieces: 80")
-        expect(page).to have_content("On Loan from Another Museum? true")
+        expect(page).to have_content("On Loan from Another Museum: true")
       end
     end
   end

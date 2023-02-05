@@ -7,5 +7,7 @@
   <p>Total Pieces: <%= artifact.total_pieces %></p>
   <p>On Loan from Another Museum: <%= artifact.on_loan %></p>
   <br>
+  <p><%= link_to "Delete Artifact: #{artifact.name}", "/artifacts/#{artifact.id}", method: :delete %></p>
+  <br>
 <% end %>
 <%= link_to "New Artifact", "/exhibits/#{@exhibit.id}/artifacts/new" %>

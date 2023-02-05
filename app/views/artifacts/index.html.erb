@@ -4,8 +4,9 @@
   <h3><%= artifact.name %></h3> 
   <p>Material: <%= artifact.material %></p>
   <p>Date Created: <%= artifact.year_created %></p>
-  <p>Total pieces: <%= artifact.total_pieces %></p>
+  <p>Total Pieces: <%= artifact.total_pieces %></p>
   <p>On Loan from Another Museum: <%= artifact.on_loan %></p>
   <p><%= link_to "Update Artifact: #{artifact.name}", "/artifacts/#{artifact.id}/edit" %></p>
   <br>
+  <p><%= link_to "Delete Artifact: #{artifact.name}", "/artifacts/#{artifact.id}", method: :delete %></p>
 <% end %>
