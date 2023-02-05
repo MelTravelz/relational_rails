@@ -87,7 +87,8 @@ RSpec.describe 'the artifact show page' do
         visit "/artifacts/#{artifact_1.id}"
         click_link("Delete Artifact: #{artifact_1.name}")
 
-        expect(current_path).to eq("/artifacts")     
+        expect(current_path).to eq("/artifacts")   
+    
         expect(page).to_not have_content(artifact_1.name)
         expect(page).to_not have_content("Material: #{artifact_1.material}")
         expect(page).to_not have_content("Date Created: #{artifact_1.year_created}")
