@@ -5,7 +5,7 @@ RSpec.describe 'the artifact index page' do
     describe 'when I visit "/artifacts"'do 
       it 'displays all the artifacts and their attributes' do
         exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
-        artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
+        artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "Marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
 
         visit "/artifacts"
         
