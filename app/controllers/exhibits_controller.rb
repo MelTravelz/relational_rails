@@ -32,6 +32,12 @@ class ExhibitsController < ApplicationController
     redirect_to "/exhibits/#{@exhibit.id}"
   end
 
+  def destroy
+    @exhibit = Exhibit.find(params[:id])
+    @exhibit.artifacts.destroy
+    @exhibit.destroy
+    redirect_to "/exhibits"
+  end
 
   private
   #private methods are only avilable inside the class, security advantages / good encapsulation too!

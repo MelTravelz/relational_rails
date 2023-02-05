@@ -107,10 +107,10 @@ RSpec.describe 'the exhibit show page' do
       end
 
       it 'when I click on the link it deletes the exhibit and all associated artifacts & redirected to exhibits index page' do
-        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
-        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
-        artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "marble", year_created: "45 BCE", total_pieces: 5, on_loan: false, created_at: Time.now - 2.hour) 
-        artifact_2 = Artifact.create!(exhibit: exhibit_2, name: "Roof-end Tile with Face Design", material: "tile", year_created: "800 BCE", total_pieces: 1, on_loan: true, created_at: Time.now - 1.hour) 
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00, created_at: Time.now - 2.hour)
+        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00, created_at: Time.now - 1.hour)
+        artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
+        artifact_2 = Artifact.create!(exhibit: exhibit_2, name: "Roof-end Tile with Face Design", material: "tile", year_created: "800 BCE", total_pieces: 1, on_loan: true) 
 
         visit "/exhibits/#{exhibit_1.id}"
         click_link("Delete Exhibit")
