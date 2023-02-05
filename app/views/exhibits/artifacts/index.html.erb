@@ -4,7 +4,8 @@
   <h3><%= artifact.name %></h3>
   <p>Material: <%= artifact.material %></p>
   <p>Date Created: <%= artifact.year_created %></p>
-  <p>Total pieces: <%= artifact.total_pieces %></p>
-  <p>On loan from another museum? <%= artifact.on_loan %></p>
+  <p>Total Pieces: <%= artifact.total_pieces %></p>
+  <p>On Loan from Another Museum? <%= artifact.on_loan %></p>
   <br>
 <% end %>
+<%= link_to "New Artifact", "/exhibits/#{@exhibit.id}/artifacts/new" %>

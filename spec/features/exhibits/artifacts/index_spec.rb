@@ -1,8 +1,4 @@
 require 'rails_helper'
-# As a visitor
-# When I visit '/parents/:parent_id/child_table_name'
-# Then I see each Child that is associated with that Parent with each Child's attributes
-# (data from each column that is on the child table)
 
 RSpec.describe 'the exhibit/artifacts index page' do
   describe 'user story 5' do
@@ -20,14 +16,14 @@ RSpec.describe 'the exhibit/artifacts index page' do
         expect(page).to have_content(artifact_1.name)
         expect(page).to have_content("Material: #{artifact_1.material}")
         expect(page).to have_content("Date Created: #{artifact_1.year_created}")
-        expect(page).to have_content("Total pieces: #{artifact_1.total_pieces}")
-        expect(page).to have_content("On loan from another museum? #{artifact_1.on_loan}")
+        expect(page).to have_content("Total Pieces: #{artifact_1.total_pieces}")
+        expect(page).to have_content("On Loan from Another Museum? #{artifact_1.on_loan}")
 
         expect(page).to have_content(artifact_2.name)
         expect(page).to have_content("Material: #{artifact_2.material}")
         expect(page).to have_content("Date Created: #{artifact_2.year_created}")
-        expect(page).to have_content("Total pieces: #{artifact_2.total_pieces}")
-        expect(page).to have_content("On loan from another museum? #{artifact_2.on_loan}")
+        expect(page).to have_content("Total Pieces: #{artifact_2.total_pieces}")
+        expect(page).to have_content("On Loan from Another Museum? #{artifact_2.on_loan}")
       end
     end
   end
@@ -62,4 +58,26 @@ RSpec.describe 'the exhibit/artifacts index page' do
     end
   end
 
+  describe 'user story 13' do
+    describe 'when I visit "/exhibits/:id/artifacts"' do
+      it 'I see a link to create a new artifact record' do
+        exhibit_1 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
+        artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Roof-end Tile with Face Design", material: "tile", year_created: "800 BCE", total_pieces: 1, on_loan: true) 
+        
+        visit "/exhibits/#{exhibit_1.id}/artifacts"
+
+        expect(page).to have_link("New Artifact")
+      end
+
+      it 'when I click on the link it takes me to the artifact new page' do
+        exhibit_1 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
+        artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Roof-end Tile with Face Design", material: "tile", year_created: "800 BCE", total_pieces: 1, on_loan: true) 
+        
+        visit "/exhibits/#{exhibit_1.id}/artifacts"
+        click_link("New Artifact")
+
+        expect(current_path).to eq("/exhibits/#{exhibit_1.id}/artifacts/new")      
+      end
+    end
+  end
 end
