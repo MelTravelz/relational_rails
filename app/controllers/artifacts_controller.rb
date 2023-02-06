@@ -1,7 +1,7 @@
 class ArtifactsController < ApplicationController
 
   def index
-    @artifacts = Artifact.all
+    @artifacts = Artifact.only_display_if_true
   end
 
   def show

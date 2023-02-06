@@ -81,6 +81,14 @@ RSpec.describe 'the exhibit/artifacts index page' do
     end
   end
 
+  describe 'user story 16' do
+    describe 'when I visit "/exhibits/:id/artifacts"' do
+      it 'I see a link to sort artifact records alphabetically' do
+
+      end
+    end
+  end
+
   describe 'user story 23' do
     describe 'when I visit "/exhibits/:id/artifacts"' do
       it 'next to each record, I see a link to delete that artifact record' do

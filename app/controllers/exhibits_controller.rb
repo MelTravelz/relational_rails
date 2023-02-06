@@ -34,7 +34,8 @@ class ExhibitsController < ApplicationController
 
   def destroy
     @exhibit = Exhibit.find(params[:id])
-    @exhibit.artifacts.destroy
+    # @exhibit.artifacts.destroy 
+    #artifacts is an attr. of exhibit...so it's also destroyed by line below:
     @exhibit.destroy
     redirect_to "/exhibits"
   end

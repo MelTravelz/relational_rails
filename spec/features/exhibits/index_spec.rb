@@ -56,6 +56,7 @@ RSpec.describe 'the exhibit index page' do
     end
   end
 
+
   describe 'user story 11' do
     describe 'when I visit "/exhibits"' do
       it 'I see a link to create a new exhibit record' do

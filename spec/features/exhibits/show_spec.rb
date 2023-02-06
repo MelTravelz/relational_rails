@@ -25,6 +25,7 @@ RSpec.describe 'the exhibit show page' do
         artifact_3 = Artifact.create!(exhibit: exhibit_1, name: "Galdiator Cup", material: "glass", year_created: "75 BCE", on_loan: true, total_pieces: 1) 
         
         visit "/exhibits/#{exhibit_1.id}"
+        save_and_open_page
 
         expect(page).to have_content("Number of Artifacts: #{exhibit_1.count_of_artifacts}")
       end

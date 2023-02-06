@@ -9,7 +9,7 @@ RSpec.describe 'the artifact index page' do
         artifact_2 = Artifact.create!(exhibit: exhibit_1, name: "Galdiator Cup", material: "glass", year_created: "75 BCE", total_pieces: 1, on_loan: true) 
 
         visit "/artifacts"
-        
+
         expect(page).to have_content(artifact_1.name)
         expect(page).to have_content("Material: #{artifact_1.material}")
         expect(page).to have_content("Date Created: #{artifact_1.year_created}")
@@ -44,7 +44,8 @@ RSpec.describe 'the artifact index page' do
     end
   end
 
-  # If I test for this...will other tests(3) fail? 
+  # If I test for this...
+  # story 3 & 17 - artifact 1 I changed to true cuz the entire tests were failing!
   # describe 'user story 15' do
   #   describe 'when I visit "/artifacts"'do 
   #     it 'I only see artifact records where "on_loan" is true' do
@@ -55,6 +56,7 @@ RSpec.describe 'the artifact index page' do
 
   #       visit "/artifacts"
 
+  #       within ""
   #       expect(page).to_not have_content(artifact_1.name)
   #       expect(page).to_not have_content("Material: #{artifact_1.material}")
   #       expect(page).to_not have_content("Date Created: #{artifact_1.year_created}")

@@ -11,7 +11,7 @@ RSpec.describe Artifact, type: :model do
         artifact_2 = Artifact.create!(exhibit: exhibit_1, name: "Nummus Aureus Coin", material: "gold", year_created: "312 CE", total_pieces: 12, on_loan: true) 
         artifact_3 = Artifact.create!(exhibit: exhibit_1, name: "Galdiator Cup", material: "glass", year_created: "75 BCE", total_pieces: 1, on_loan: true) 
 
-        expect(Artifact.only_disply_if_true).to eq([artifact_2, artifact_3])
+        expect(Artifact.only_display_if_true).to eq([artifact_2, artifact_3])
       end
     end
   end
