@@ -65,7 +65,7 @@ RSpec.describe 'the artifact index page' do
   #   end
   # end
 
-  describe 'user story 17' do
+  describe 'user story 18' do
     describe 'when I visit "/artifacts"' do
       it 'next to each record, I see a link to edit that artifact record' do
         exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
