@@ -9,10 +9,10 @@ class Exhibits::ArtifactsController < ApplicationController
   end
 
   def create
-    @exhibit = Exhibit.find(params[:id])
+    exhibit = Exhibit.find(params[:id])
     # Artifact.create!(artifact_params.merge({exhibit_id: @exhibit.id}))
-    @exhibit.artifacts.create!(artifact_params)
-    redirect_to "/exhibits/#{@exhibit.id}/artifacts"
+    exhibit.artifacts.create!(artifact_params)
+    redirect_to "/exhibits/#{exhibit.id}/artifacts"
   end
 
   private

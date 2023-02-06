@@ -6,6 +6,7 @@ RSpec.describe 'the artifact index page' do
       it 'displays all the artifacts and their attributes' do
         exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
         artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "Marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
+        artifact_2 = Artifact.create!(exhibit: exhibit_1, name: "Galdiator Cup", material: "glass", year_created: "75 BCE", total_pieces: 1, on_loan: true) 
 
         visit "/artifacts"
         
@@ -14,6 +15,13 @@ RSpec.describe 'the artifact index page' do
         expect(page).to have_content("Date Created: #{artifact_1.year_created}")
         expect(page).to have_content("Total Pieces: #{artifact_1.total_pieces}")
         expect(page).to have_content("On Loan from Another Museum: #{artifact_1.on_loan}")
+
+        expect(page).to have_content(artifact_2.name)
+        expect(page).to have_content("Material: #{artifact_2.material}")
+        expect(page).to have_content("Date Created: #{artifact_2.year_created}")
+        expect(page).to have_content("Total Pieces: #{artifact_2.total_pieces}")
+        expect(page).to have_content("On Loan from Another Museum: #{artifact_2.on_loan}")
+
       end
     end
   end
@@ -35,6 +43,25 @@ RSpec.describe 'the artifact index page' do
       end
     end
   end
+
+  # If I test for this...will other tests(3) fail? 
+  # describe 'user story 15' do
+  #   describe 'when I visit "/artifacts"'do 
+  #     it 'I only see artifact records where "on_loan" is true' do
+  #       exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
+  #       artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "Marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
+  #       artifact_2 = Artifact.create!(exhibit: exhibit_1, name: "Nummus Aureus Coin", material: "gold", year_created: "312 CE", total_pieces: 12, on_loan: true) 
+  #       artifact_3 = Artifact.create!(exhibit: exhibit_1, name: "Galdiator Cup", material: "glass", year_created: "75 BCE", total_pieces: 1, on_loan: true) 
+
+  #       visit "/artifacts"
+
+  #       expect(page).to_not have_content(artifact_1.name)
+  #       expect(page).to_not have_content("Material: #{artifact_1.material}")
+  #       expect(page).to_not have_content("Date Created: #{artifact_1.year_created}")
+  #       expect(page).to_not have_content("Total Pieces: #{artifact_1.total_pieces}")
+  #     end 
+  #   end
+  # end
 
   describe 'user story 17' do
     describe 'when I visit "/artifacts"' do
@@ -96,7 +123,7 @@ RSpec.describe 'the artifact index page' do
         expect(page).to_not have_content("Material: #{artifact_1.material}")
         expect(page).to_not have_content("Date Created: #{artifact_1.year_created}")
         expect(page).to_not have_content("Total Pieces: #{artifact_1.total_pieces}")
-         # Not sure what to do with this test: for now it passes but since its a boolean, most likely
+        # Not sure what to do with this test: for now it passes but since its a boolean, most likely
         # another artifact would have this same output
         # expect(page).to_not have_content("On Loan from Another Museum: #{artifact_1.on_loan}")
 

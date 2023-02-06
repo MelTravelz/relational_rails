@@ -18,8 +18,8 @@ RSpec.describe 'the exhibit index page' do
   describe 'user story 6' do
     describe 'when I visit "/exhibits"'do 
       it 'displays exhibits ordered by most recently created first' do
-        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00, created_at: Time.now - 2.hour)
-        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00, created_at: Time.now - 1.hour)
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00, created_at: Time.now - 3.hour)
+        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00, created_at: Time.now - 2.hour)
 
         visit "/exhibits"
 
