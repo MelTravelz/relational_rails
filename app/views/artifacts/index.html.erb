@@ -2,7 +2,7 @@
 <p><%= link_to "Artifacts On Loan", :sort => "on_loan_true" %></p>
 <br>
 <% @artifacts.each do |artifact| %>
-  <h2><%= artifact.name %></h2> 
+  <h2><%= link_to "#{artifact.name}",  "/artifacts/#{artifact.id}" %></h2> 
   <p>Material: <%= artifact.material %></p>
   <p>Date Created: <%= artifact.year_created %></p>
   <p>Total Pieces: <%= artifact.total_pieces %></p>

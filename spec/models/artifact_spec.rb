@@ -4,7 +4,7 @@ RSpec.describe Artifact, type: :model do
   it {should belong_to :exhibit}
 
   describe 'user story 15' do
-    describe '#sort_alphabetically"'do 
+    describe '::sort_alphabetically"'do 
       it 'displays artifact records in alphabetical order' do
         exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
         artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "Marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
@@ -17,7 +17,7 @@ RSpec.describe Artifact, type: :model do
   end
 
   describe 'user story 16' do
-    describe '#only_disply_if_true"'do 
+    describe '::only_disply_if_true"'do 
       it 'only displays artifact records where "on_loan" is true' do
         exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
         artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "Marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
@@ -30,7 +30,7 @@ RSpec.describe Artifact, type: :model do
   end
 
   describe 'user story 21' do
-    describe '#filter_by_total_pieces"'do 
+    describe '::filter_by_total_pieces"'do 
       it 'only displays artifact records where total_pieces is a certain number or higher' do
         exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
         artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "Marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 

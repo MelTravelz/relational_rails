@@ -28,19 +28,33 @@ RSpec.describe 'the artifact index page' do
       end
     end
 
+    describe 'EXTRA: artifact name is also a link to its show page' do
+      it 'the name of each record is a link to its show page' do
+        visit "/artifacts" 
+        expect(page).to have_link("#{artifact_5.name}", href: "/artifacts/#{artifact_5.id}")
+
+        click_link("#{artifact_5.name}")
+        expect(current_path).to eq("/artifacts/#{artifact_5.id}")   
+      end 
+    end
+
     describe 'user story 8' do
       it 'I see a link at the top of the page that takes me to the Artifacts Index page' do
         visit "/artifacts"
-
         expect(page).to have_link("All Artifacts", href: "/artifacts")
+
+        click_link("All Artifacts")
+        expect(current_path).to eq("/artifacts")   
       end
     end
 
     describe 'user story 9' do
       it 'I see a link at the top of the page that takes me to the Exhibits Index page' do
         visit "/artifacts"
-
         expect(page).to have_link("All Exhibits", href: "/exhibits")
+        
+        click_link("All Exhibits")
+        expect(current_path).to eq("/exhibits")      
       end
     end
 

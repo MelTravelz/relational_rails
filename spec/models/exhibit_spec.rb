@@ -9,7 +9,7 @@ RSpec.describe Exhibit, type: :model do
   it {should have_many :artifacts}
 
     describe 'user story 6' do
-      describe '#order_by_most_recently_created' do
+      describe '::order_by_most_recently_created' do
         it 'displays the exhibits in order of most recetly created first' do
           exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00, created_at: Time.now - 2.hour)
           exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00, created_at: Time.now - 1.hour)

@@ -14,6 +14,16 @@ RSpec.describe 'the exhibit index page' do
       end
     end
 
+    describe 'EXTRA: exhibit name is also a link to its show page' do
+      it 'the name of each record is a link to its show page' do
+        visit "/exhibits" 
+        expect(page).to have_link("#{exhibit_1.name}", href: "/exhibits/#{exhibit_1.id}")
+
+        click_link("#{exhibit_1.name}")
+        expect(current_path).to eq("/exhibits/#{exhibit_1.id}")   
+      end 
+    end
+
     describe 'user story 6' do
       it 'displays exhibits ordered by most recently created first' do
         visit "/exhibits"
@@ -33,6 +43,9 @@ RSpec.describe 'the exhibit index page' do
       it 'I see a link at the top of the page that takes me to the Artifacts Index page' do
         visit "/exhibits"
         expect(page).to have_link("All Artifacts", href: "/artifacts")
+
+        click_link("All Artifacts")
+        expect(current_path).to eq("/artifacts")   
       end
     end
 
@@ -40,6 +53,9 @@ RSpec.describe 'the exhibit index page' do
       it 'I see a link at the top of the page that takes me to the Exhibits Index page' do
         visit "/exhibits"
         expect(page).to have_link("All Exhibits", href: "/exhibits")
+
+        click_link("All Exhibits")
+        expect(current_path).to eq("/exhibits")  
       end
     end
 
