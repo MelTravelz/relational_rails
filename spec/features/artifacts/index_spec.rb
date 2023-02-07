@@ -48,7 +48,7 @@ RSpec.describe 'the artifact index page' do
         it 'next to each record, I see a link to sort that artifact record' do
           visit "/artifacts" 
 
-          expect(page).to have_link("Only View Artifact from Other Museums")
+          expect(page).to have_link("Artifacts On Loan")
         end 
 
         it 'when I click on the link it displays only the artifacts with a true value for on_loan' do 
@@ -60,7 +60,7 @@ RSpec.describe 'the artifact index page' do
           expect(page).to have_content(artifact_4.name)
           expect(page).to have_content(artifact_5.name)
 
-          click_link("Only View Artifact from Other Museums")
+          click_link("Artifacts On Loan")
 
           expect(current_path).to eq("/artifacts")  
           expect(page).to_not have_content(artifact_1.name)

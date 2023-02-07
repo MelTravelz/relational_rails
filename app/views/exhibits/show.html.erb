@@ -1,6 +1,6 @@
 <h1><%= @exhibit.name %></h1>
 
-<p>Currently on display? <%= @exhibit.on_display %></p>
+<p>Currently on display: <%= @exhibit.on_display %></p>
 <p>Price: <%= @exhibit.price %></p>
 <p>Number of Artifacts: <%= @artifact_count %></p>
 <p><%= link_to "View All Artifacts for this Exhibit", "/exhibits/#{@exhibit.id}/artifacts" %></p>

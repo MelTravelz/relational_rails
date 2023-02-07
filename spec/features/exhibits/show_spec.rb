@@ -9,7 +9,7 @@ RSpec.describe 'the exhibit show page' do
         visit "/exhibits/#{exhibit_1.id}"
 
         expect(page).to have_content(exhibit_1.name) 
-        expect(page).to have_content("Currently on display? #{exhibit_1.on_display}")
+        expect(page).to have_content("Currently on display: #{exhibit_1.on_display}")
         expect(page).to have_content("Price: #{exhibit_1.price}")
       end
     end
