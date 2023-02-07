@@ -43,8 +43,8 @@ class ExhibitsController < ApplicationController
   private
   #private methods are only avilable inside the class, security advantages / good encapsulation too!
 
-   # This is called "strong params"
-   def exhibit_params
+  # This is called "strong params"
+  def exhibit_params
     params.permit(:name, :on_display, :price)
   end
 end
