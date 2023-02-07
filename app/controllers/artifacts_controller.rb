@@ -1,7 +1,13 @@
 class ArtifactsController < ApplicationController
 
   def index
-    @artifacts = Artifact.all
+    # require 'pry'; binding.pry
+    if params[:sort] == "on_loan_true"
+      @artifacts = Artifact.only_display_if_true
+    else
+      @artifacts = Artifact.all
+    end
+    # @artifacts = Artifact.only_display_if_true(params[:order])
   end
 
   def show
@@ -25,7 +31,7 @@ class ArtifactsController < ApplicationController
 
   private
   def artifact_params
-   params.permit(:name, :material, :year_created, :total_pieces, :on_loan)
- end
+    params.permit(:name, :material, :year_created, :total_pieces, :on_loan)
+  end
   
 end

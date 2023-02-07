@@ -8,7 +8,6 @@ RSpec.describe Exhibit, type: :model do
 
   it {should have_many :artifacts}
 
-  describe 'instance methods' do
     describe 'user story 6' do
       describe '#order_by_most_recently_created' do
         it 'displays the exhibits in order of most recetly created first' do
@@ -20,7 +19,6 @@ RSpec.describe Exhibit, type: :model do
         end
       end
     end
-  end
 
   describe 'user story 7' do
     describe '#count_of_artifacts' do
