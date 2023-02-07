@@ -3,7 +3,7 @@
 <br>
 <br>
 <% @exhibits.each do |exhibit| %>
-    <h2><%= exhibit.name %></h2> 
+    <h2><%= link_to "#{exhibit.name}",  "/exhibits/#{exhibit.id}" %></h2> 
     <p>Created at: <%= exhibit.created_at %></p>
      <p><%= link_to "Update", "/exhibits/#{exhibit.id}/edit" %></p>
      <p><%= link_to "Delete", "/exhibits/#{exhibit.id}", method: :delete %></p>
