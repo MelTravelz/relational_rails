@@ -1,6 +1,6 @@
 class Artifact < ApplicationRecord
   belongs_to :exhibit
-  # see notes below on scope:
+  # this is the same as the method below:
   # scope :only_display_if_true, ->  { where(on_loan: :true) }
 
   def self.only_display_if_true
@@ -14,11 +14,4 @@ class Artifact < ApplicationRecord
   def self.filter_by_total_pieces(num)
     where("total_pieces > #{num}")
   end
-
-
-  # scope method = model method
-  # scope does need a model test 
-  # and becomes a "feature" ??
-  # If you're sorting/filter you can use scope
-  # scope :only_disply_if_true, -> (where("on_loan"))
 end

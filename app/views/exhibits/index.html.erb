@@ -1,12 +1,12 @@
 <h1>All Exhibits</h1>
-
+<%= link_to "New Exhibit", "/exhibits/new" %>
+<br>
+<br>
 <% @exhibits.each do |exhibit| %>
-    <h3><%= exhibit.name %></h3> 
+    <h2><%= exhibit.name %></h2> 
     <p>Created at: <%= exhibit.created_at %></p>
-     <p><%= link_to "Update Exhibit: #{exhibit.name}", "/exhibits/#{exhibit.id}/edit" %></p>
-     <br>
-     <p><%= link_to "Delete Exhibit: #{exhibit.name}", "/exhibits/#{exhibit.id}", method: :delete %></p>
+     <p><%= link_to "Update", "/exhibits/#{exhibit.id}/edit" %></p>
+     <p><%= link_to "Delete", "/exhibits/#{exhibit.id}", method: :delete %></p>
   <br>
 <% end %>
-<br>
-<%= link_to "New Exhibit", "/exhibits/new" %>
+

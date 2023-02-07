@@ -1,7 +1,8 @@
 <h1>Artifacts in <%= @exhibit.name %> Exhibit</h1>
 <p><%= link_to "Sort Alphabetically", :sort => "alphab" %></p>
-<br> 
-<p><strong>Filter by Number of Total Pieces</strong></p>
+<%= link_to "New Artifact", "/exhibits/#{@exhibit.id}/artifacts/new" %>
+<br>
+<p><strong>Filter by Number of Total Pieces: </strong></p>
 <%= form_with url: "/exhibits/#{@exhibit.id}/artifacts", method: :get, local: true do |form| %>
   <%= form.label :total_pieces, "Total Pieces" %>
   <%= form.number_field :total_pieces %>
@@ -10,16 +11,14 @@
   <%= form.submit "Filter" %>
  <% end %>
  <br>
+ <br>
 <% @artifacts.each do |artifact| %>
-  <h3><%= artifact.name %></h3>
+  <h2><%= artifact.name %></h2>
   <p>Material: <%= artifact.material %></p>
   <p>Date Created: <%= artifact.year_created %></p>
   <p>Total Pieces: <%= artifact.total_pieces %></p>
   <p>On Loan from Another Museum: <%= artifact.on_loan %></p>
-  <br>
-  <p><%= link_to "Update Artifact: #{artifact.name}", "/artifacts/#{artifact.id}/edit" %></p>
-  <br>
-  <p><%= link_to "Delete Artifact: #{artifact.name}", "/artifacts/#{artifact.id}", method: :delete %></p>
+  <p><%= link_to "Update", "/artifacts/#{artifact.id}/edit" %></p>
+  <p><%= link_to "Delete", "/artifacts/#{artifact.id}", method: :delete %></p>
   <br>
 <% end %>
-<%= link_to "New Artifact", "/exhibits/#{@exhibit.id}/artifacts/new" %>

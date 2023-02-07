@@ -1,13 +1,13 @@
 <h1>All Artifacts</h1>
-<p><%= link_to "Only View Artifact from Other Museums", :sort => "on_loan_true" %></p>
-
+<p><%= link_to "Artifacts On Loan", :sort => "on_loan_true" %></p>
+<br>
 <% @artifacts.each do |artifact| %>
-  <h3><%= artifact.name %></h3> 
+  <h2><%= artifact.name %></h2> 
   <p>Material: <%= artifact.material %></p>
   <p>Date Created: <%= artifact.year_created %></p>
   <p>Total Pieces: <%= artifact.total_pieces %></p>
   <p>On Loan from Another Museum: <%= artifact.on_loan %></p>
-  <p><%= link_to "Update Artifact: #{artifact.name}", "/artifacts/#{artifact.id}/edit" %></p>
+  <p><%= link_to "Update", "/artifacts/#{artifact.id}/edit" %></p>
+  <p><%= link_to "Delete", "/artifacts/#{artifact.id}", method: :delete %></p>
   <br>
-  <p><%= link_to "Delete Artifact: #{artifact.name}", "/artifacts/#{artifact.id}", method: :delete %></p>
 <% end %>

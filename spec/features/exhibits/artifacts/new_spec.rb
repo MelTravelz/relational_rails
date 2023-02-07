@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'the exhibit/artifacts index page' do
-  describe 'user story 13' do
-    describe 'when I visit "/exhibits/:id/artifacts/new"' do
+  describe 'when I visit "/exhibits/:id/artifacts/new"' do
+    describe 'user story 13' do
       it "can create a new artifact" do
         exhibit_1 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
         visit "/exhibits/#{exhibit_1.id}/artifacts/new"
 
-        fill_in("New Artifact Name", with: "Silla Golden Crown")
+        fill_in("Artifact Name", with: "Silla Golden Crown")
         fill_in("Material", with: "Gold")
         fill_in("Year Created (include BCE or CE)", with: "400 BCE")
         fill_in("Number of Total Pieces" , with: 80)
