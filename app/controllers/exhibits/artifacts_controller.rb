@@ -1,7 +1,11 @@
 class Exhibits::ArtifactsController < ApplicationController
   def index
     @exhibit = Exhibit.find(params[:id])
-    @artifacts = @exhibit.artifacts 
+    if params[:sort] == "ABC"
+      @artifacts = @exhibit.artifacts.sort_alphabetically
+    else
+      @artifacts = @exhibit.artifacts 
+    end
   end
 
   def new
