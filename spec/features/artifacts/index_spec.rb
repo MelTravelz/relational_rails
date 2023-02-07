@@ -44,26 +44,38 @@ RSpec.describe 'the artifact index page' do
     end
   end
 
-  # If I test for this...
-  # story 3 & 17 - artifact 1 I changed to true cuz the entire tests were failing!
-  # describe 'user story 15' do
-  #   describe 'when I visit "/artifacts"'do 
-  #     it 'I only see artifact records where "on_loan" is true' do
-  #       exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
-  #       artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "Marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
-  #       artifact_2 = Artifact.create!(exhibit: exhibit_1, name: "Nummus Aureus Coin", material: "gold", year_created: "312 CE", total_pieces: 12, on_loan: true) 
-  #       artifact_3 = Artifact.create!(exhibit: exhibit_1, name: "Galdiator Cup", material: "glass", year_created: "75 BCE", total_pieces: 1, on_loan: true) 
+  describe 'user story 15' do
+    describe 'when I visit "/artifacts"'do 
+      it 'next to each record, I see a link to sort that artifact record' do
+        visit "/artifacts" 
+       
+        expect(page).to have_link("Only View Artifact from Other Museums")
+      end 
 
-  #       visit "/artifacts"
+      it 'when I click on the link it displays only the artifacts with a true value for on_loan' do 
+        exhibit_1 = Exhibit.create!(name: "Ancient Rome", on_display: true, price: 15.00)
+        artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "Statue of Augustus", material: "marble", year_created: "45 BCE", total_pieces: 5, on_loan: false) 
+        
+        exhibit_2 = Exhibit.create!(name: "Ancient Korea", on_display: false, price: 17.00)
+        artifact_2 = Artifact.create!(exhibit: exhibit_2, name: "Roof-end Tile with Face Design", material: "tile", year_created: "800 BCE", total_pieces: 1, on_loan: false) 
+        artifact_3 = Artifact.create!(exhibit: exhibit_2, name: "Divine Bell of King Seongdeok", material: "metal", year_created: "771 BCE", total_pieces: 2, on_loan: true) 
 
-  #       within ""
-  #       expect(page).to_not have_content(artifact_1.name)
-  #       expect(page).to_not have_content("Material: #{artifact_1.material}")
-  #       expect(page).to_not have_content("Date Created: #{artifact_1.year_created}")
-  #       expect(page).to_not have_content("Total Pieces: #{artifact_1.total_pieces}")
-  #     end 
-  #   end
-  # end
+        visit "/artifacts" 
+
+        expect(page).to have_content(artifact_1.name)
+        expect(page).to have_content(artifact_2.name)
+        expect(page).to have_content(artifact_3.name)
+
+        click_link("Only View Artifact from Other Museums")
+
+        expect(current_path).to eq("/artifacts")      
+        expect(page).to have_content(artifact_3.name)
+
+        expect(page).to_not have_content(artifact_1.name)
+        expect(page).to_not have_content(artifact_2.name)
+      end
+    end
+  end
 
   describe 'user story 18' do
     describe 'when I visit "/artifacts"' do
