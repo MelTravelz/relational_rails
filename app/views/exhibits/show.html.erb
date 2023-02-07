@@ -3,8 +3,7 @@
 <p>Currently on display: <%= @exhibit.on_display %></p>
 <p>Price: <%= @exhibit.price %></p>
 <p>Number of Artifacts: <%= @artifact_count %></p>
-<p><%= link_to "View All Artifacts for this Exhibit", "/exhibits/#{@exhibit.id}/artifacts" %></p>
+<p><%= link_to "View All Artifacts", "/exhibits/#{@exhibit.id}/artifacts" %></p>
 <br>
-<p><%= link_to "Update Exhibit", "/exhibits/#{@exhibit.id}/edit", method: :get %></p>
-<br>
+<p><%= link_to "Update", "/exhibits/#{@exhibit.id}/edit", method: :get %></p>
 <p><%= link_to "Delete Exhibit: #{@exhibit.name}", "/exhibits/#{@exhibit.id}", method: :delete %></p>
