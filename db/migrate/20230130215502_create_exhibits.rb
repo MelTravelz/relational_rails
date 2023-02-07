@@ -5,7 +5,7 @@ class CreateExhibits < ActiveRecord::Migration[5.2]
 
       t.string :name
       t.boolean :on_display
-      t.float :price, precision: 2
+      t.float :price, precision: 5, scale: 2
 
       t.timestamps 
       # Line above creates the following two in the schema.rb file: 
