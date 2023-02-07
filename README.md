@@ -16,7 +16,7 @@ Before you can enter; however, please follow the steps below:
     - In the terminal type `bundle exec rspec` and then `open coverage/index.html`
 
 ## A Visual Diagram of the Current Schema ##
-![Ancient Archeo Museum Diagram](https://user-images.githubusercontent.com/116964982/217344550-6a4bfbd5-e1b9-4acb-b5d2-43b98354253e.png)
+<img width="559" alt="Ancient Archeo Museum Diagram" src="https://user-images.githubusercontent.com/116964982/217378768-5b4b385d-6d25-48f4-9167-926b20aa1c07.png">
 
 <!-- This README would normally document whatever steps are necessary to get the
 application up and running.
