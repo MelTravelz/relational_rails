@@ -1,7 +1,6 @@
 class ArtifactsController < ApplicationController
 
   def index
-    # require 'pry'; binding.pry
     if params[:sort] == "on_loan_true"
       @artifacts = Artifact.only_display_if_true
     else
