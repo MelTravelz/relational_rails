@@ -30,16 +30,20 @@ RSpec.describe 'the exhibit show page' do
     describe 'user story 8' do
       it 'I see a link at the top of the page that takes me to the Artifacts Index page' do
         visit "/exhibits/#{exhibit_1.id}"
-
         expect(page).to have_link("All Artifacts", href: "/artifacts")
+
+        click_link("All Artifacts")
+        expect(current_path).to eq("/artifacts")   
       end
     end
 
     describe 'user story 9' do
       it 'I see a link at the top of the page that takes me to the Exhibits Index page' do
         visit "/exhibits/#{exhibit_1.id}"
-
         expect(page).to have_link("All Exhibits", href: "/exhibits")
+
+        click_link("All Exhibits")
+        expect(current_path).to eq("/exhibits")  
       end
     end
 

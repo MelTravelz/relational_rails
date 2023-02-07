@@ -16,6 +16,7 @@ RSpec.describe 'the exhibit update page' do
         expect(current_path).to eq("/exhibits/#{exhibit_1.id}")
         expect(page).to have_content("Ancient Celtics")
         expect(page).to have_content("Currently on display: true")
+        expect(page).to have_content("Price: 18")
         # expect(page).to have_content("Price: 18.00")
       end
     end
