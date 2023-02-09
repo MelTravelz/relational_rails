@@ -19,7 +19,7 @@ artifact_1 = Artifact.create!(exhibit: exhibit_1, name: "ET's Home Phone", mater
 artifact_2 = Artifact.create!(exhibit: exhibit_1, name: "'Mayan' Anti-Gravitational Whistle", material: "bone", year_created: "250 CE", total_pieces: 1, on_loan: false)
 artifact_3 = Artifact.create!(exhibit: exhibit_1, name: "Roswell UFO Crash Pieces", material: "unidentified metal alloy", year_created: "1947 CE", total_pieces: 12, on_loan: true)
 
-artifact_4 = Artifact.create!(exhibit: exhibit_2, name: "Piri Reis Map's with Middle and Eastern Pages", material: "papyrus", year_created: "1513 CE", total_pieces: 3, on_loan: true)
+artifact_4 = Artifact.create!(exhibit: exhibit_2, name: "Piri Reis Map with Middle and Eastern Pages", material: "papyrus", year_created: "1513 CE", total_pieces: 3, on_loan: true)
 artifact_5 = Artifact.create!(exhibit: exhibit_2, name: "Translation of Voynich Manuscript", material: "vellum", year_created: "1404 CE", total_pieces: 240, on_loan: false)
 artifact_8 = Artifact.create!(exhibit: exhibit_3, name: "Sword of Magellan", material: "steel", year_created: "1495 CE", total_pieces: 2, on_loan: true)
 
